@@ -42,6 +42,12 @@ function booktool_wordimport_extend_settings_navigation(settings_navigation $set
         return;
     }
 
+    /* START Academy Patch M#068 Fix bugs in booktool_wordimport */
+    if (empty($params['chapterid'])) {
+        $params['chapterid'] = null;
+    }
+    /* END Academy Patch M#068 */
+
     if (empty($PAGE->cm->context)) {
         $PAGE->cm->context = get_context_module::instance($PAGE->cm->instance);
     }

@@ -457,7 +457,11 @@
         </xsl:variable>
 
         <xsl:choose>
+        <!-- START Academy Patch M#068 Fix bugs in booktool_wordimport
         <xsl:when test="starts-with($stylePropertyFirst, 'line-height:1;') or starts-with($stylePropertyFirst, 'line-height:1.15;')">
+        -->
+        <xsl:when test="starts-with($stylePropertyFirst, 'line-height:')">
+        <!-- END Academy Patch M#068 -->
             <!-- Ignore line-height if it is exactly 1 or 1.15 -->
         </xsl:when>
         <xsl:when test="starts-with($stylePropertyFirst, 'margin-') or starts-with($stylePropertyFirst, 'page-break')">
